@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <center>
+      <TitledPane alignment="CENTER" collapsible="false" ellipsisString="" lineSpacing="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="712.0" text="VISIO" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane maxWidth="800.0" minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="710.0" style="background-color: #292d36;">
+               <children>
+                  <ImageView fx:id="frame" accessibleRole="TEXT_FIELD" fitHeight="370.0" fitWidth="680.0" layoutX="5.0" layoutY="22.0" onDragDetected="#Selectionner" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport></ImageView>
+                  <Button fx:id="startCam" layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#startCamera" prefHeight="55.0" prefWidth="91.0" styleClass="aaa" stylesheets="@application.css" />
+                  <Button id="savef" fx:id="saveBtn" disable="true" layoutX="102.0" layoutY="423.0" mnemonicParsing="false" onAction="#saveFace" prefHeight="55.0" prefWidth="91.0" stylesheets="@application.css" />
+                  <Button fx:id="recogniseBtn" disable="true" layoutX="310.0" layoutY="423.0" mnemonicParsing="false" onAction="#faceRecognise" prefHeight="60.0" prefWidth="173.0" style="-fx-background-color: gold;" styleClass="recog" stylesheets="@application.css">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                 
+                     
+                  <Button fx:id="stopBtn" layoutX="5.0" layoutY="424.0" mnemonicParsing="false" onAction="#stopCam" prefHeight="55.0" prefWidth="91.0" styleClass="stop1" stylesheets="@application.css" text="Stop" visible="false" />
+                  <Separator layoutX="252.0" layoutY="411.0" prefWidth="200.0" />
+                  <Label fx:id="savedLabel" layoutX="282.0" layoutY="207.0" prefHeight="52.0" prefWidth="215.0" text="Enregistrement reussi !" underline="true" visible="false">
+                     <font>
+                        <Font name="Vonique 92" size="25.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                           <stops>
+                              <Stop color="#bc2b30" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <ProgressIndicator fx:id="pb" layoutX="360.0" layoutY="156.0" progress="0.0" visible="false" />
+                  <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="365.0" prefHeight="52.0" prefWidth="384.0" style="-fx-background-color: #e53b24; -fx-background-radius: 14px;" text="Remplissez tous les champs requis" textFill="WHITE" underline="true" visible="false">
+                     <font>
+                        <Font name="Estrangelo Edessa" size="19.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="stopRecBtn" disable="true" layoutX="497.0" layoutY="423.0" mnemonicParsing="false" onAction="#stopRecognise" prefHeight="55.0" prefWidth="91.0" styleClass="stop2" stylesheets="@application.css" text="STOP" textFill="#fa1111">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font></Button>
+                 
+                  <Button fx:id="motionBtn" disable="true" layoutX="203.0" layoutY="425.0" mnemonicParsing="false" onAction="#startMotion" prefHeight="55.0" prefWidth="91.0" styleClass="motion" stylesheets="@application.css">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="0.30952380952380953" proportional="false" startX="0.49523809523809526" startY="0.7904761904761906">
+                           <stops>
+                              <Stop color="#b81dc2" />
+                              <Stop color="BLACK" offset="0.29813958999881496" />
+                              <Stop color="#ffffff00" offset="0.4099616858237546" />
+                              <Stop color="BLACK" offset="0.5223367697594502" />
+                              <Stop color="BLACK" offset="0.6717620571157717" />
+                              <Stop color="BLACK" offset="0.742979025950942" />
+                              <Stop color="#1a16e0" offset="0.9441876999644507" />
+                              <Stop color="#1de31700" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <Label fx:id="warningcode" alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="330.0" style="-fx-background-color: #e53b24; -fx-background-radius: 14px;" text="Le code est composé de quatre entiers  " textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="warningface" alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="302.0" style="-fx-background-color: #e53b24; -fx-background-radius: 14px;" text="Aucun visage n'est detecté" textAlignment="CENTER" textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="beginList" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="597.0" layoutY="424.0" mnemonicParsing="false" onAction="#makeList" prefHeight="55.0" prefWidth="98.0" styleClass="listButton" stylesheets="@application.css" text="Editer la liste" textAlignment="CENTER" textFill="#2b862b" textOverrun="CLIP">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="endList" alignment="CENTER" disable="true" layoutX="597.0" layoutY="424.0" mnemonicParsing="false" onAction="#stopmakeList" prefHeight="55.0" prefWidth="98.0" text="Fermer la liste" textAlignment="CENTER" textFill="#e10f0f" textOverrun="CLIP" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="warningperiode" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="377.0" style="-fx-background-color: #e53b24; -fx-background-radius: 14px;" text="choissisez une des periodes" textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane fx:id="dialogface" disable="true" layoutX="173.0" layoutY="107.0" prefHeight="166.0" prefWidth="395.0" style="-fx-background-color: gray; -fx-border-radius: 12px; -fx-border-color: red;" visible="false">
+                     <children>
+                        <Button fx:id="dialogfaceNon" layoutX="310.0" layoutY="125.0" mnemonicParsing="false" onAction="#non" prefHeight="28.0" prefWidth="54.0" text="Non">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="dialogfaceOui" layoutX="243.0" layoutY="125.0" mnemonicParsing="false" onAction="#oui" prefHeight="28.0" prefWidth="54.0" text="Oui" textFill="#6c418d">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="14.0" prefHeight="17.0" prefWidth="152.0" text="ATTENTION !!" textAlignment="CENTER" textFill="#c91b1b">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="54.0" prefHeight="59.0" prefWidth="385.0" text="Le matricule et/ou le code existe déjà dans la base de données.&#10;&#10;Voulez vous enregistrer uniquement le visage ?" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </content>
+         <font>
+            <Font name="Poiret One" size="23.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <textFill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="0.9714285714285714">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7450980544090271" green="0.03921568766236305" blue="0.8549019694328308" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.03921568766236305" green="0.03529411926865578" blue="0.03921568766236305" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </TitledPane>
+   </center>
+   <left>
+      <TitledPane fx:id="dataPane" disable="true" prefHeight="528.0" prefWidth="302.0" text="Informations sur l'etudiant" BorderPane.alignment="CENTER">
+         <content>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="276.0" prefWidth="300.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <ListView fx:id="output" editable="true" layoutX="4.0" layoutY="4.0" prefHeight="242.0" prefWidth="290.0" style="-fx-padding: 10; -fx-background-color: white;">
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </ListView>
+                     </children></AnchorPane>
+                <AnchorPane fx:id="pdPane" minHeight="0.0" minWidth="0.0" opacity="0.78" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: black;">
+                     <children>
+                        <Label fx:id="title" layoutX="29.0" layoutY="-16.0" prefHeight="61.0" prefWidth="244.0" text="Donnees etudiant:" textFill="#3e8685">
+                           <font>
+                              <Font name="Papyrus" size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="matricule" alignment="CENTER" layoutX="105.0" layoutY="49.0" prefHeight="25.0" prefWidth="181.0" promptText="Entrez le matricule" />
+                        <TextField fx:id="code" alignment="CENTER" layoutX="105.0" layoutY="79.0" prefHeight="30.0" prefWidth="181.0" promptText="Quatre dernieres lettres du matricule">
+                           <font>
+                              <Font size="10.0" />
+                           </font></TextField>
+                        <TextField fx:id="fname" alignment="CENTER" layoutX="105.0" layoutY="114.0" prefHeight="25.0" prefWidth="181.0" promptText="Entrez votre nom" />
+                        <TextField fx:id="lname" alignment="CENTER" layoutX="105.0" layoutY="148.0" prefHeight="25.0" prefWidth="181.0" promptText="Entrez votre prenom" />
+                       
+                       
+                        <TextField fx:id="age" alignment="CENTER" layoutX="105.0" layoutY="180.0" prefHeight="25.0" prefWidth="181.0" promptText="Entrez l'age" />
+                        <Label layoutX="2.0" layoutY="210.0" text="Filiere:" textFill="#07daf2">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="109.0" text="Nom:" textFill="#07d8f0">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="79.0" prefHeight="30.0" prefWidth="57.0" text="Code:" textFill="#07daf2" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="241.0" AnchorPane.topAnchor="79.0">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="146.0" text="Prenom:" textFill="#07daf2">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="34.0" layoutY="33.0" prefHeight="6.0" prefWidth="239.0" />
+                        <Label layoutX="2.0" layoutY="177.0" text="Age:" textFill="#07d8f0">
+                           <font>
+                              <Font name="System Bold Italic" size="19.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="motionView" fitHeight="211.0" fitWidth="298.0" layoutX="2.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                        <Label layoutX="2.0" layoutY="46.0" text="Matricule:" textFill="#07daf2">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="combE" layoutX="105.0" layoutY="213.0" onAction="#SelectionnerPrim" prefHeight="25.0" prefWidth="178.0" promptText="Choisir la filiere" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </content></TitledPane>
+   </left>
+   <right>
+      <TitledPane fx:id="eventPane" animated="false" disable="true" prefHeight="524.0" prefWidth="266.0" text="Informations de sorties" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="338.0">
+               <children>
+                  <SplitPane layoutX="-5.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="287.0">
+                    <items>
+                        <ScrollPane prefHeight="428.0" prefViewportHeight="244.0" prefViewportWidth="328.0" prefWidth="285.0">
+                           <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="405.0">
+                                 <children>
+                                    <Label layoutX="68.0" layoutY="7.0" text="Evenements:" textFill="#3d8583">
+                                       <font>
+                                          <Font name="Vermin Vibes 4 Helium" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator layoutX="77.0" layoutY="37.0" prefHeight="5.0" prefWidth="123.0" />
+                                    <ListView fx:id="logList" editable="true" layoutX="-2.0" layoutY="37.0" prefHeight="139.0" prefWidth="261.0" style="-fx-padding: 10;">
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                    </ListView>
+                                    <Separator layoutX="77.0" layoutY="225.0" prefHeight="5.0" prefWidth="123.0" />
+                                    <Label layoutX="52.0" layoutY="196.0" text="Fiche de presence" textFill="#3d8583">
+                                       <font>
+                                          <Font name="Vermin Vibes 4 Helium" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane layoutX="2.0" layoutY="234.0" prefHeight="249.0" prefWidth="264.0">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.78" prefHeight="226.0" prefWidth="252.0" style="-fx-background-color: black;">
+                                             <children>
+                                                <DatePicker fx:id="dateFiche" layoutX="109.0" layoutY="41.0" prefHeight="25.0" prefWidth="114.0" promptText="Date du jour" />
+                                                <TextField fx:id="nomprof" alignment="CENTER" layoutX="101.0" layoutY="83.0" prefHeight="25.0" prefWidth="144.0" promptText="Nom du professeur" />
+                                                <RadioButton fx:id="periode1" layoutX="4.0" layoutY="114.0" mnemonicParsing="false" text="Periode 1: 7h30 - 11h30" textFill="#7e7da8">
+                                                   <font>
+                                                      <Font name="System Italic" size="12.0" />
+                                                   </font>
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="tg" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="periode2" layoutX="4.0" layoutY="140.0" mnemonicParsing="false" text="Periode 2: 12h - 16h30" textFill="#7e7da8" toggleGroup="$tg">
+                                                   <font>
+                                                      <Font name="System Italic" size="12.0" />
+                                                   </font>
+                                                </RadioButton>
+                                                <TextField fx:id="nomcours" alignment="CENTER" layoutX="109.0" layoutY="161.0" prefHeight="10.0" prefWidth="128.0" promptText="Nom/libellé du cours" />
+                                                <TextField fx:id="nomfich" editable="false" layoutX="4.0" layoutY="188.0" prefHeight="25.0" prefWidth="104.0" promptText="Nom du fichier" />
+                                                <Button fx:id="filechoose" layoutX="117.0" layoutY="189.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="12.0" prefWidth="33.0" text="...">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label layoutX="4.0" layoutY="43.0" text="Date:" textFill="#07d8f0">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="4.0" layoutY="85.0" text="Nom du prof:" textFill="#07d8f0">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="4.0" layoutY="163.0" text="Nom du cours:" textFill="#07d8f0">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="4.0" layoutY="5.0" text="Filiere/Option:" textFill="#07d8f0">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="comb" layoutX="109.0" layoutY="3.0" onAction="#Selectionner" prefHeight="25.0" prefWidth="121.0" promptText="Choisir" />
+                                               
+                                                         </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </content>
+      </TitledPane>
+   </right>
+   <bottom>
+      <Pane prefHeight="195.0" prefWidth="1354.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" prefHeight="206.0" prefWidth="1350.0" text="Visages de la base de donnees">
+              <content>
+                  <ScrollPane prefViewportHeight="180.0" prefViewportWidth="1348.0">
+                     <content>
+                        <TilePane fx:id="tile" hgap="30.0" opacity="0.4" prefHeight="181.0" prefWidth="1438.0" style="-fx-background-color: black;" vgap="30.0">
+                           <padding>
+                              <Insets bottom="50.0" />
+                           </padding>
+                        </TilePane>
+                     </content>
+                  </ScrollPane>
+              </content>
+            </TitledPane>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
