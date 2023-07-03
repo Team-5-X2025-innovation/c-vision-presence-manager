@@ -1,13 +1,17 @@
-# Projet Visio
+# Computer vision presence manager
 <p align="center">
- <img src="./logo.png" alt="Logo" style="width: 220px;"/></div>
+ <img src=".images/../bin/application/logo/logo.png" alt="Logo" style="width: 220px;"/></div>
 </p>
 
-VISIO is a Smart Computer Vision Application with various functionalities. I have tried to put as many Machine Learning tools as possible into one single Application for greater productivity.
+**c-vision presence manager** is a Smart Computer Vision Application with various functionalities. I have tried to put as many Machine Learning tools as possible into one single Application for greater productivity.
 
-<p align="center">
- <img src="./recognise.png" alt="Appercu reconnaissance faciale" style="width: 300px;"/></div>
-</p>
+## CONTRIBUTORS
+
+* [TOUKAM Sonia Rykiel ](https://github.com/ToukamSR)
+* [Frank-Vairelles FONKOU](https://github.com/Vairelles1409)
+* [NGAMO Chabain](https://github.com/Chabain-ngamo)
+* [SIKATI KENMOGNE](https://github.com/sikatikenmogne)
+* [NOUMEN Darryl](https://github.com/noumen635)
 
 ## KEY FEATURES
 * Auto Attendance system Using Real Time Face Recognition
@@ -24,7 +28,7 @@ VISIO is a Smart Computer Vision Application with various functionalities. I hav
 * Maven
 
 # Installation Guide
-For more informations contact Tamaroas-Dev from facebook or send a mail to <b>martialkom123@gmail.com</b>
+
 ## Maven Dependencies
 ```xml
      <dependency>
@@ -113,9 +117,3 @@ class Database {
 	.
 	.
 ```
-
-       
-
- 
-
-
